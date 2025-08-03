@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - TruthGuard AI | Lahore Science Mela</title>
+    <meta name="description" content="AI-powered fake news detection system presented at Lahore Science Mela 2025">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .welcome-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .college-logo {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            background: none;
+            border: none;
+            margin-right: 1.5rem;
+        }
+        
+        .event-info {
+            text-align: right;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .welcome-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .welcome-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .welcome-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .welcome-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+        
+        .judge-greeting {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .judge-greeting h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .project-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            max-width: 800px;
+        }
+        
+        .highlight-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .highlight-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .highlight-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-card p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .enter-button {
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            color: #333;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .enter-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-elements::before {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-elements::after {
+            top: 60%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .student-info {
+            position: absolute;
+            bottom: 2rem;
+            left: 3rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .welcome-title {
+                font-size: 2.5rem;
+            }
+            
+            .welcome-header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .college-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .project-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="floating-elements"></div>
+        
+        <div class="welcome-header">
+            <img src="logo.png" alt="College Logo" class="college-logo" />
+            <div class="event-info">
+                <strong>Lahore Science Mela 2025</strong><br>
+                Student Project Presentation<br>
+                October 2025
+            </div>
+        </div>
+        
+        <div class="welcome-content">
+            <h1 class="welcome-title">TruthGuard AI</h1>
+            <p class="welcome-subtitle">Advanced Fake News Detection System</p>
+            
+            <div class="judge-greeting">
+                <h2>Welcome, Esteemed Judges!</h2>
+                <p>Thank you for taking the time to evaluate our project. This AI-powered system represents months of research and development in combating misinformation using advanced pattern recognition algorithms.</p>
+            </div>
+            
+            <div class="project-highlights">
+                <div class="highlight-card">
+                    <i data-lucide="brain"></i>
+                    <h3>AI Algorithm</h3>
+                    <p>75+ detection patterns across 8 misinformation categories</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <i data-lucide="zap"></i>
+                    <h3>Real-time Analysis</h3>
+                    <p>Sub-second processing with detailed explanations</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <i data-lucide="shield"></i>
+                    <h3>Privacy-First</h3>
+                    <p>Client-side processing ensures complete data privacy</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <i data-lucide="target"></i>
+                    <h3>High Accuracy</h3>
+                    <p>Comprehensive detection with detailed risk analysis</p>
+                </div>
+            </div>
+            
+            <p class="welcome-description">
+                This project addresses the critical challenge of misinformation in our digital age. 
+                Using sophisticated pattern recognition and weighted scoring algorithms, TruthGuard AI 
+                can detect fake news across medical, political, geographical, and social domains.
+            </p>
+            
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem;">
+                <a href="index.html" class="enter-button">
+                    <i data-lucide="arrow-right" style="margin-right: 0.5rem;"></i>
+                    Enter Demonstration
+                </a>
+                <a href="sample-case.html" class="enter-button">
+                    <i data-lucide="file-text" style="margin-right: 0.5rem;"></i>
+                    View Sample Case
+                </a>
+            </div>
+        </div>
+        
+        <div class="student-info">
+            <strong>Presented by:</strong> Omaimah Mushtaq<br>
+            <strong>Academic Year:</strong> 2nd Year<br>
+            <strong>Focus:</strong> AI & Web Development
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+        
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate cards on scroll
+            const cards = document.querySelectorAll('.highlight-card');
+            
+            // Simple fade in animation
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruthGuard AI - Advanced Fake News Detection</title>
+    <meta name="description" content="Use advanced AI to detect fake news and misinformation. Analyze articles for credibility with our powerful machine learning detection system.">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="TruthGuard AI - Advanced Fake News Detection">
+    <meta property="og:description" content="Use advanced AI to detect fake news and misinformation. Analyze articles for credibility with our powerful machine learning detection system.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://truthguard-ai.replit.app">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="brand">
+                    <div class="brand-icon">
+                        <i data-lucide="shield"></i>
+                    </div>
+                    <h1 class="brand-title">TruthGuard AI</h1>
+                    <span class="brand-subtitle">Advanced Fake News Detection</span>
+                </div>
+                <nav>
+                    <button onclick="scrollToSection('detection')" class="nav-link nav-link-primary">Detection</button>
+                    <button onclick="scrollToSection('samples')" class="nav-link">Samples</button>
+                    <button onclick="scrollToSection('education')" class="nav-link">Learn</button>
+                    <button onclick="scrollToSection('analytics')" class="nav-link">Analytics</button>
+                    <button onclick="showProjectInfo()" class="nav-link" style="background: #10b981; color: white; border-radius: 20px;">About Project</button>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i data-lucide="menu" id="menuIcon"></i>
+                    <i data-lucide="x" id="closeIcon" style="display: none;"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <nav class="mobile-nav">
+                    <button onclick="scrollToSection('detection')" class="mobile-nav-link mobile-nav-link-primary">Detection</button>
+                    <button onclick="scrollToSection('samples')" class="mobile-nav-link">Samples</button>
+                    <button onclick="scrollToSection('education')" class="mobile-nav-link">Learn</button>
+                    <button onclick="scrollToSection('analytics')" class="mobile-nav-link">Analytics</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+ <img src="logo.png" alt="College Logo" class="college-logo-fixed" />
+    <!-- Detection Form Section -->
+    <section id="detection" class="detection-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Detect Fake News with AI Precision</h2>
+          <p class="section-description">
+            Paste any news article or headline below. Our advanced machine learning model will analyze the content and provide a detailed credibility assessment.
+          </p>
+        </div>
+
+        <!-- Detection Form -->
+        <div class="detection-form-card">
+          <form id="detectionForm" class="detection-form">
+            <div class="form-group">
+              <label for="newsText" class="form-label">News Article or Headline</label>
+              <textarea 
+                id="newsText" 
+                rows="8" 
+                class="form-textarea"
+                placeholder="Paste your news article or headline here for AI analysis..."></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="analyzeBtn">
+                <i data-lucide="search"></i>
+                <span>Analyze with AI</span>
+              </button>
+              <button type="button" class="btn btn-secondary" id="clearBtn">
+                <i data-lucide="x"></i>
+                Clear
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="results-section" style="display: none;">
+          <!-- Loading state -->
+          <div id="loadingResults" class="results-card loading-card">
+            <div class="loading-header">
+              <h3 class="results-title">Analysis Results</h3>
+              <div class="loading-skeleton loading-skeleton-text"></div>
+            </div>
+            <div class="loading-content">
+              <div class="loading-skeleton loading-skeleton-large"></div>
+              <div class="loading-skeleton loading-skeleton-medium"></div>
+              <div class="loading-skeleton loading-skeleton-block"></div>
+            </div>
+          </div>
+
+          <!-- Actual results -->
+          <div id="actualResults" class="results-card" style="display: none;">
+            <div class="results-header">
+              <h3 class="results-title">Analysis Results</h3>
+              <div class="processing-time">
+                <i data-lucide="clock"></i>
+                <span id="processingTime">Analyzed in 0ms</span>
+              </div>
+            </div>
+
+            <!-- Confidence Score -->
+            <div class="confidence-section">
+              <div class="confidence-header">
+                <span class="confidence-label">Credibility Score</span>
+                <span id="confidenceScore" class="confidence-score">0%</span>
+              </div>
+              <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+              </div>
+              <div class="progress-labels">
+                <span>Likely False</span>
+                <span>Highly Credible</span>
+              </div>
+   <!-- Performance Metrics -->
+                    <div class="performance-metrics" id="performanceMetrics">
+                        <h4 class="metrics-title">Performance Metrics</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-icon">⚡</div>
+                                <div class="metric-content">
+                                    <span class="metric-label">Processing Speed</span>
+                                    <span class="metric-value" id="processingSpeed">-- ms</span>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-icon">📝</div>
+            </div>
+
+            <!-- Detection Result Cards -->
+            <div class="result-cards">
+              <div id="detectionCard" class="result-card">
+                <div class="result-card-header">
+                  <i id="detectionIcon" data-lucide="alert-triangle"></i>
+                  <span id="detectionTitle" class="result-card-title">Detection Result</span>
+                </div>
+                <p id="detectionDescription" class="result-card-description">Analysis description</p>
+              </div>
+              <div class="result-card result-card-ai">
+                <div class="result-card-header">
+                  <i data-lucide="bot"></i>
+                  <span class="result-card-title">AI Confidence</span>
+                </div>
+                <p id="aiDescription" class="result-card-description">Model processed features with confidence.</p>
+              </div>
+            </div>
+
+            <!-- Analysis Breakdown -->
+            <div class="analysis-breakdown">
+              <h4 class="breakdown-title">Detailed Analysis</h4>
+              <div id="analysisFactors" class="factors-list">
+                <!-- Factors will be populated by JavaScript -->
+              </div>
+            </div>
+
+            <!-- Recommendation -->
+            <div class="recommendation">
+              <h5 class="recommendation-title">Recommendation</h5>
+              <p id="recommendationText" class="recommendation-text">Analysis recommendation will appear here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sample Articles Section -->
+    <section id="samples" class="samples-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Try Sample Articles</h2>
+                <p class="section-description">Test our AI with these sample news articles to see how it performs</p>
+            </div>
+
+            <div class="samples-grid" id="samplesGrid">
+                <!-- Loading skeletons -->
+                <div class="sample-card loading-card">
+                    <div class="sample-card-header">
+                        <div class="loading-skeleton loading-skeleton-badge"></div>
+                        <div class="loading-skeleton loading-skeleton-icon"></div>
+                    </div>
+                    <div class="loading-skeleton loading-skeleton-title"></div>
+                    <div class="loading-skeleton loading-skeleton-description"></div>
+                </div>
+                 <!-- Risk Radar Chart -->
+                    <div class="risk-radar-section">
+                        <h4 class="breakdown-title">Risk Assessment Radar</h4>
+                        <div class="radar-container">
+                            <canvas id="riskRadarChart" width="300" height="300"></canvas>
+                            <div class="radar-legend">
+                                <div class="legend-item"><span class="legend-color medical"></span>Medical</div>
+                                <div class="legend-item"><span class="legend-color political"></span>Political</div>
+                                <div class="legend-item"><span class="legend-color economic"></span>Economic</div>
+                                <div class="legend-item"><span class="legend-color social"></span>Social</div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="sample-card loading-card">
+                    <div class="sample-card-header">
+                        <div class="loading-skeleton loading-skeleton-badge"></div>
+                        <div class="loading-skeleton loading-skeleton-icon"></div>
+                    </div>
+                    <div class="loading-skeleton loading-skeleton-title"></div>
+                    <div class="loading-skeleton loading-skeleton-description"></div>
+                </div>
+                <div class="sample-card loading-card">
+                    <div class="sample-card-header">
+                        <div class="loading-skeleton loading-skeleton-badge"></div>
+                        <div class="loading-skeleton loading-skeleton-icon"></div>
+                    </div>
+                    <div class="loading-skeleton loading-skeleton-title"></div>
+                    <div class="loading-skeleton loading-skeleton-description"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Understanding Fake News</h2>
+                <p class="section-description">Learn how to identify misinformation and protect yourself online</p>
+            </div>
+
+            <div class="education-cards">
+                <div class="education-card">
+                    <div class="education-icon education-icon-primary">
+                        <i data-lucide="eye"></i>
+                    </div>
+                    <h3 class="education-card-title">Check Sources</h3>
+                    <p class="education-card-description">Always verify the credibility of news sources and look for proper attribution.</p>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-icon education-icon-success">
+                        <i data-lucide="search"></i>
+                    </div>
+                    <h3 class="education-card-title">Cross-Reference</h3>
+                    <p class="education-card-description">Compare information across multiple reliable news outlets before believing.</p>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-icon education-icon-warning">
+                        <i data-lucide="alert-triangle"></i>
+                    </div>
+                    <h3 class="education-card-title">Question Sensational</h3>
+                    <p class="education-card-description">Be skeptical of headlines that seem too shocking or too good to be true.</p>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-icon education-icon-error">
+                        <i data-lucide="share"></i>
+                    </div>
+                    <h3 class="education-card-title">Think Before Sharing</h3>
+                    <p class="education-card-description">Verify information before sharing it with others to prevent spread of misinformation.</p>
+                </div>
+            </div>
+
+            <!-- How Our AI Works -->
+            <div class="ai-explanation">
+                <h3 class="ai-explanation-title">How Our AI Detection Works</h3>
+                <div class="ai-features">
+                    <div class="ai-feature">
+                        <div class="ai-feature-icon ai-feature-icon-blue">
+                            <i data-lucide="brain"></i>
+                        </div>
+                        <h4 class="ai-feature-title">Natural Language Processing</h4>
+                        <p class="ai-feature-description">Analyzes text patterns, linguistic features, and semantic meaning to detect anomalies.</p>
+                    </div>
+                    
+                    <div class="ai-feature">
+                        <div class="ai-feature-icon ai-feature-icon-green">
+                            <i data-lucide="database"></i>
+                        </div>
+                        <h4 class="ai-feature-title">Trained on Massive Dataset</h4>
+                        <p class="ai-feature-description">Leverages millions of verified real and fake news articles for accurate classification.</p>
+                    </div>
+                    
+                    <div class="ai-feature">
+                        <div class="ai-feature-icon ai-feature-icon-purple">
+                            <i data-lucide="trending-up"></i>
+                        </div>
+                        <h4 class="ai-feature-title">Confidence Scoring</h4>
+                        <p class="ai-feature-description">Provides detailed confidence levels and explanations for transparent decision-making.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Section -->
+    <section id="analytics" class="analytics-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Detection Analytics</h2>
+                <p class="section-description">Real-time insights into our AI detection performance</p>
+            </div>
+
+            <div class="analytics-stats" id="analyticsStats">
+                <div class="stat-card">
+                    <div id="accuracyStat" class="stat-value loading-skeleton loading-skeleton-stat">98.7%</div>
+                    <div class="stat-label">Overall Accuracy</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div id="analyzedStat" class="stat-value loading-skeleton loading-skeleton-stat">2.1M</div>
+                    <div class="stat-label">Articles Analyzed</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div id="fakeDetectedStat" class="stat-value loading-skeleton loading-skeleton-stat">847K</div>
+                    <div class="stat-label">Fake News Detected</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div id="falsePositiveStat" class="stat-value loading-skeleton loading-skeleton-stat">0.8%</div>
+                    <div class="stat-label">False Positive Rate</div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <h3 class="activity-title">Recent Detection Activity</h3>
+                <div id="recentActivityList" class="activity-list">
+                    <!-- Loading skeletons -->
+                    <div class="activity-item loading-card">
+                        <div class="activity-item-content">
+                            <div class="loading-skeleton loading-skeleton-dot"></div>
+                            <div class="activity-details">
+                                <div class="loading-skeleton loading-skeleton-activity-title"></div>
+                                <div class="loading-skeleton loading-skeleton-activity-subtitle"></div>
+                            </div>
+                        </div>
+                        <div class="loading-skeleton loading-skeleton-category"></div>
+                    </div>
+                    <div class="activity-item loading-card">
+                        <div class="activity-item-content">
+                            <div class="loading-skeleton loading-skeleton-dot"></div>
+                            <div class="activity-details">
+                                <div class="loading-skeleton loading-skeleton-activity-title"></div>
+                                <div class="loading-skeleton loading-skeleton-activity-subtitle"></div>
+                            </div>
+                        </div>
+                        <div class="loading-skeleton loading-skeleton-category"></div>
+                    </div>
+                    <div class="activity-item loading-card">
+                        <div class="activity-item-content">
+                            <div class="loading-skeleton loading-skeleton-dot"></div>
+                            <div class="activity-details">
+                                <div class="loading-skeleton loading-skeleton-activity-title"></div>
+                                <div class="loading-skeleton loading-skeleton-activity-subtitle"></div>
+                            </div>
+                        </div>
+                        <div class="loading-skeleton loading-skeleton-category"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-brand-header">
+             <i data-lucide="shield" class="footer-brand-icon"></i>
+            <h3 class="footer-brand-title">TruthGuard AI</h3>
+                    </div>
+                    <p class="footer-brand-description">
+                        Advanced AI-powered fake news detection to help you navigate the information landscape safely and confidently.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-links-title">Features</h4>
+                    <ul class="footer-links-list">
+                        <li><button onclick="scrollToSection('detection')" class="footer-link">AI Detection</button></li>
+                        <li><button onclick="scrollToSection('samples')" class="footer-link">Sample Articles</button></li>
+                        <li><button onclick="scrollToSection('analytics')" class="footer-link">Analytics</button></li>
+                        <li><button onclick="scrollToSection('education')" class="footer-link">Education</button></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-links-title">Resources</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#" class="footer-link">API Documentation</a></li>
+                        <li><a href="#" class="footer-link">Research Paper</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2024 TruthGuard AI. All rights reserved.</p>
+                <p class="footer-powered">Powered by advanced machine learning algorithms</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <div class="toast-icon">
+                <i data-lucide="check-circle"></i>
+            </div>
+            <div class="toast-message">
+                <div class="toast-title">Success</div>
+                <div class="toast-description">Operation completed successfully</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

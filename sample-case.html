@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Case - TruthGuard AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            background: rgba(255,255,255,0.10);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+        .sample-case-card {
+            background: linear-gradient(120deg, #e0e7ff 60%, #f3e8ff 100%);
+            color: #222;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(44, 62, 80, 0.10);
+            padding: 1.2rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+            color: #3b82f6;
+            margin-top: 0;
+        }
+        blockquote {
+            background: rgba(103, 126, 234, 0.08);
+            border-left: 4px solid #764ba2;
+            padding: 1rem;
+            font-style: italic;
+            color: #333;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .enter-button {
+            display: inline-block;
+            margin: 3rem auto 1rem;
+            background: #10b981;
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .enter-button:hover {
+            background: #059669;
+            transform: translateY(-2px) scale(1.03);
+        }
+        .centered-button {
+            text-align: center;
+        }
+        .section-title {
+            margin-top: 3rem;
+            font-size: 1.6rem;
+            color: #10b981;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TruthGuard AI – Sample Misinformation Analysis</h1>
+
+        <h2 class="section-title">Factual Misrepresentation</h2>
+        <div class="grid">
+            <div class="sample-case-card">
+                <h2>Inflation</h2>
+                <blockquote>"The president has nothing to do with prices like gas or eggs." In fact, presidential policies do influence prices.</blockquote>
+                <p><strong>Analysis:</strong> Misleading. Presidents impact prices via policy, regulation, and spending.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>"Bloodbath"</h2>
+                <blockquote>"Trump called for a bloodbath." In fact, he was referring to economic impacts, not violence.</blockquote>
+                <p><strong>Analysis:</strong> Misleading context. He referred to economic downturn, not literal violence.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Crime Trends</h2>
+                <blockquote>"Violent crime is at a 50-year low." Based on partial FBI data, excluding many crimes.</blockquote>
+                <p><strong>Analysis:</strong> Incomplete. Broader DOJ data shows recent increases.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Jobs</h2>
+                <blockquote>"Biden created record job growth." Most of the gains went to immigrants.</blockquote>
+                <p><strong>Analysis:</strong> Selective. Native-born employment recovery is weaker.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Border Wall</h2>
+                <blockquote>"Kamala Harris pledged millions for the wall." She didn’t. She supported a bill with optional use.</blockquote>
+                <p><strong>Analysis:</strong> False. She didn’t directly pledge wall funding.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>School Shootings</h2>
+                <blockquote>"JD Vance called shootings a fact of life." He was referring to violent perpetrators, not school shootings.</blockquote>
+                <p><strong>Analysis:</strong> Misquote. He emphasized prevention and school safety.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Republic vs Democracy</h2>
+                <blockquote>"There’s no difference between a republic and democracy." Founders insisted the U.S. be a republic.</blockquote>
+                <p><strong>Analysis:</strong> Inaccurate. Republic was chosen for checks on mob rule.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Military Use</h2>
+                <blockquote>"Trump wants to use military on Democrats." He referred to external agitators, not political opponents.</blockquote>
+                <p><strong>Analysis:</strong> False. Misrepresented who he targeted in his comments.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Late-Term Abortions</h2>
+                <blockquote>"They only happen in emergencies." About 80% of late-term abortions are elective.</blockquote>
+                <p><strong>Analysis:</strong> Misleading. Most are not due to health reasons.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Climate Crisis</h2>
+                <blockquote>"All disasters are worse now due to climate change." Many major indicators have stayed stable.</blockquote>
+                <p><strong>Analysis:</strong> Exaggerated. Data shows mixed or stable trends.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Civil Rights Interpretation</h2>
+                <blockquote>"Trump allies want civil rights to favor white people." The law prohibits racial favoritism in any form.</blockquote>
+                <p><strong>Analysis:</strong> Misframed. Civil Rights Act applies to all races.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Student Debt</h2>
+                <blockquote>"Biden is cancelling student debt." He transferred it to taxpayers; not canceled.</blockquote>
+                <p><strong>Analysis:</strong> Misleading. It’s debt reassignment, not erasure.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Illegal Voting</h2>
+                <blockquote>"Non-citizens can’t vote." Federal law doesn’t require proof of citizenship to register.</blockquote>
+                <p><strong>Analysis:</strong> False. Gaps in ID laws allow illegal registration.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Crime by Immigrants</h2>
+                <blockquote>"Illegals commit fewer crimes than citizens." Some studies show higher violent crime rates among illegals.</blockquote>
+                <p><strong>Analysis:</strong> Misleading. Depends on how data is measured.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Sea Level Rise</h2>
+                <blockquote>"Florida will be underwater by 2100." Previous predictions were inaccurate; land area has grown.</blockquote>
+                <p><strong>Analysis:</strong> Overstated. Historical projections haven't held up.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Mask Effectiveness</h2>
+                <blockquote>"Masks prevent Covid spread." RCTs didn’t show significant impact on mortality or severe outcomes.</blockquote>
+                <p><strong>Analysis:</strong> Weak evidence. Mask benefits remain debated.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Economic Growth</h2>
+                <blockquote>"GDP has surged post-Covid." Axios omitted inflation and population growth in their claim.</blockquote>
+                <p><strong>Analysis:</strong> Misleading. Real per capita GDP is below trend.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Heavily Opinionated or Debatable Claims</h2>
+        <div class="grid">
+            <div class="sample-case-card">
+                <h2>Fauci’s Record</h2>
+                <blockquote>"No one has saved more lives than Fauci. In fact, he may have caused harm through funding, lockdowns, and misleading statements."</blockquote>
+                <p><strong>Analysis:</strong> Opinion. Interpretation of his record is highly polarized.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Hunter Biden</h2>
+                <blockquote>"It’s a conspiracy theory that Hunter profited in Ukraine with Joe Biden’s help." Documents and witness claims suggest otherwise.</blockquote>
+                <p><strong>Analysis:</strong> Contentious. Strong claims exist, but political lens skews judgment.</p>
+            </div>
+
+            <div class="sample-case-card">
+                <h2>Covid Vaccines</h2>
+                <blockquote>"mRNA vaccines save millions." Critics argue safety data is incomplete; consensus supports vaccine effectiveness.</blockquote>
+                <p><strong>Analysis:</strong> Heavily debated. Scientific consensus favors effectiveness, but dissent exists.</p>
+            </div>
+        </div>
+
+        <div class="centered-button">
+            <a href="welcome.html" class="enter-button">Back to Main Demo</a>
+        </div>
+    </div>
+</body>
+</html>
