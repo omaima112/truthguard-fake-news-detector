@@ -59,7 +59,7 @@ An intelligent web application that uses advanced pattern recognition algorithms
 
 ## 📁 Project Structure
 ```
-├── index.html          # Main webpage
+
 ├── css/
 │   └── styles.css      # Styling
 ├── js/
