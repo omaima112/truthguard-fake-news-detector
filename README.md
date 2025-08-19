@@ -59,11 +59,19 @@ An intelligent web application that uses advanced pattern recognition algorithms
 
 ## 📁 Project Structure
 ```
-├── index.html          # Main webpage structure
-├── styles.css          # Complete styling and responsive design
-├── script.js           # AI detection engine and UI logic
-├── server.py           # Development server (Python)
-└── README.md           # This documentation
+├── index.html          # Main webpage
+├── css/
+│   └── styles.css      # Styling
+├── js/
+│   └── script.js       # AI engine & UI logic
+├── assets/
+│   └── logos/          # Images and icons
+├── samples/
+│   └── sample-case.html
+│   └── welcome.html
+│   └── portfolio.html
+└── README.md
+└── LICENSE
 ```
 
 ## 🚀 How to Run
