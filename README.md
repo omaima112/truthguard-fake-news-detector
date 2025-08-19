@@ -67,6 +67,7 @@ An intelligent web application that uses advanced pattern recognition algorithms
 ├── assets/
 │   └── logos/          # Images and icons
 ├── samples/
+|   └── index.html          # Main webpage
 │   └── sample-case.html
 │   └── welcome.html
 │   └── portfolio.html
